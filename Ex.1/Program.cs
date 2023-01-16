@@ -31,22 +31,48 @@
                     _login = login;
                     _password = password;
                 }
+
+                Console.WriteLine("LogIn");
             }
 
             public static bool AuthorizationChecking(string login, string password, string confirmPassword)
-            {   
+            {
                 if (login.Length > 20 || login.Any(s => s.Equals(" ")))
                 {
                     throw new WrongLoginException("Password should be without any spaces " +
                         "and should contains only 20 simbols or less");
                 }
-                if (password != confirmPassword)
-                {
+               
+                
+                if (password.Length > 20 | !password.Any(s => char.IsDigit(s))
+                    
+)
+                { 
                     throw new WrongPasswordException("Wrong password!");
                 }
 
-                return true;
+                if (password.Contains(' ')) 
+                {
+                    throw new WrongPasswordException("Wrong password!");
+                }
+                 return true;
+                
             }
+             
+            //public static bool PasswordChecking(string password)
+            //{
+            //    foreach (char item in password)
+            //    {
+            //        if (char.IsDigit(item))
+            //        { 
+            //            return true; 
+            //        }
+                    
+                       
+            //    }
+            //    return false;
+               
+            //}
 
 
 
@@ -57,7 +83,7 @@
         {   
             try
             { 
-                Authorization aut = new Authorization("VicMur", "2122", "2121");
+                Authorization aut = new Authorization("VicMur", "AAAAAAA A1", "AAAAAAA A1");
 
             }
             catch (Exception ex)
